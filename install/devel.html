@@ -1,0 +1,393 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Development &mdash; Ichnaea 1.5 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
+    <link rel="top" title="Ichnaea 1.5 documentation" href="../index.html"/>
+        <link rel="up" title="Installation" href="index.html"/>
+        <link rel="next" title="Metrics" href="metrics.html"/>
+        <link rel="prev" title="Deployment" href="deploy.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Ichnaea
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.5
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../usage.html">Using the Service</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/index.html">Services API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../import_export.html">Data Export</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Installation</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="config.html">Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="deploy.html">Deployment</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Development</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#prerequisites">Prerequisites</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#docker">Docker</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#requirements">Requirements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#code">Code</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#documentation">Documentation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#python-dependencies">Python Dependencies</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#css-js-images">CSS / JS / Images</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#cleanup">Cleanup</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#release-build">Release Build</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="metrics.html">Metrics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="testing.html">Testing</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../algo/index.html">Algorithms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../internal_api/index.html">Internal Code API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../glossary.html">Glossary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../changes/index.html">Changelog</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Ichnaea</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">Installation</a> &raquo;</li>
+        
+      <li>Development</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/install/devel.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="development">
+<span id="devel"></span><h1>Development<a class="headerlink" href="#development" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="prerequisites">
+<h2>Prerequisites<a class="headerlink" href="#prerequisites" title="Permalink to this headline">¶</a></h2>
+<p>In order to install a development version of the service, you need to
+have a Linux or Mac OS machine and
+<a class="reference external" href="https://docs.docker.com/installation/">install docker</a> and
+docker-compose.</p>
+<p>On Linux you can use your OS level package manager to install them.</p>
+<p>On Mac OS you need to install
+<a class="reference external" href="https://docs.docker.com/docker-for-mac/">Docker for Mac</a>.
+Docker Toolbox or docker-machine based setups aren’t supported
+by the documentation and Makefile.</p>
+</div>
+<div class="section" id="docker">
+<h2>Docker<a class="headerlink" href="#docker" title="Permalink to this headline">¶</a></h2>
+<p>We use docker to run additional development dependencies like
+Redis and MySQL with the exact versions we want to test against.</p>
+<p>We assume that you can run <code class="docutils literal"><span class="pre">docker</span></code> and <code class="docutils literal"><span class="pre">docker-compose</span></code> on
+your command line. Test this via:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>docker --version
+docker-compose --version
+</pre></div>
+</div>
+</div>
+<div class="section" id="requirements">
+<h2>Requirements<a class="headerlink" href="#requirements" title="Permalink to this headline">¶</a></h2>
+<p>In order to run the code you need to have Python 2.6, 2.7 or 3.5 installed
+on your system. The default Makefile also assumes a <cite>virtualenv</cite>
+command is globally available. If this isn’t true for your system,
+please create a virtualenv manually inside the ichnaea folder before
+continuing (<code class="docutils literal"><span class="pre">/path/to/virtualenv</span> <span class="pre">--python=python2.6</span> <span class="pre">.</span></code>).</p>
+<p>In the next step you are going to install a good number of Python libraries,
+which depend on various OS level C libraries. These C libraries are best
+installed via the OS level package management system. We list the
+CentOS/Redhat names, but they should be similar on other OS.</p>
+<p>Runtime requirements:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>openssl, python, libmaxminddb, libffi, atlas-sse3, geos, spatialindex-devel
+</pre></div>
+</div>
+<p>Build requirements:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>openssl-devel, gcc, gcc-c++, gcc-gfortran, make, python, python-pip,
+python-virtualenv, git, libmaxminddb, libffi-devel, atlas-devel,
+geos-devel, spatialindex-devel
+</pre></div>
+</div>
+</div>
+<div class="section" id="code">
+<h2>Code<a class="headerlink" href="#code" title="Permalink to this headline">¶</a></h2>
+<p>Now run the following command to get the code:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>git clone https://github.com/mozilla/ichnaea
+<span class="nb">cd</span> ichnaea
+</pre></div>
+</div>
+<p>Then run make, which is going to take quite a while the first time:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>make
+</pre></div>
+</div>
+<p>Now you can run the web app for example on port 7001:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="nv">ICHNAEA_CFG</span><span class="o">=</span>location.ini bin/gunicorn -b <span class="m">127</span>.0.0.1:7001 <span class="se">\</span>
+    -c python:ichnaea.webapp.settings ichnaea.webapp.app:wsgi_app
+</pre></div>
+</div>
+<p>The celery processes are started via:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="nv">ICHNAEA_CFG</span><span class="o">=</span>location.ini bin/celery -A ichnaea.async.app:celery_app beat
+
+<span class="nv">ICHNAEA_CFG</span><span class="o">=</span>location.ini bin/celery -A ichnaea.async.app:celery_app worker <span class="se">\</span>
+    -Ofair --no-execv --without-mingle --without-gossip
+</pre></div>
+</div>
+</div>
+<div class="section" id="documentation">
+<h2>Documentation<a class="headerlink" href="#documentation" title="Permalink to this headline">¶</a></h2>
+<p>In order to create and test the documentation locally run:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>make docs
+</pre></div>
+</div>
+<p>The documentation will be available in <code class="docutils literal"><span class="pre">docs/build/html/index.html</span></code>.</p>
+</div>
+<div class="section" id="python-dependencies">
+<h2>Python Dependencies<a class="headerlink" href="#python-dependencies" title="Permalink to this headline">¶</a></h2>
+<p>The project uses <a class="reference external" href="https://requires.io/github/mozilla/ichnaea/requirements/?branch=master">requires.io</a>
+to track whether or not the Python dependencies are outdated.</p>
+<p>If they are, update the version pins in the various <cite>requirements/*.txt</cite>
+files and rerun <cite>make</cite>, <cite>make docs</cite> or <cite>make test</cite>, depending on which
+requirements have changed.</p>
+</div>
+<div class="section" id="css-js-images">
+<h2>CSS / JS / Images<a class="headerlink" href="#css-js-images" title="Permalink to this headline">¶</a></h2>
+<p>The project depends on a number of external web assets. Those dependencies
+are tracked via npm and bower in files under <cite>docker/node</cite>.</p>
+<p>In order to install them, run:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>make css
+make js
+</pre></div>
+</div>
+<p>This will install build tools and bower assets inside a docker container.
+It will also copy, compile and minify files in various folders under
+<cite>ichnaea/content/static/</cite>.</p>
+<p>To check if the external assets are outdated run:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>docker run --rm -it mozilla-ichnaea/node:latest bower list
+</pre></div>
+</div>
+</div>
+<div class="section" id="cleanup">
+<h2>Cleanup<a class="headerlink" href="#cleanup" title="Permalink to this headline">¶</a></h2>
+<p>In case the local environment gets into a weird or broken state, it can
+be cleaned up by running:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>make clean
+</pre></div>
+</div>
+<p>Of course one can also delete the entire git repository and start from
+a fresh checkout.</p>
+</div>
+<div class="section" id="release-build">
+<h2>Release Build<a class="headerlink" href="#release-build" title="Permalink to this headline">¶</a></h2>
+<p>The default <cite>make</cite> / <cite>make build</cite> target installs a local development
+version including database setup and testing tools. For a production
+environment or release pipeline one can instead use:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>make release
+</pre></div>
+</div>
+<p>This will not do any database setup and only install production
+dependencies. It will also create a virtualenv and install the ichnaea
+code itself via <cite>bin/python setup.py install</cite>, so that a copy will be
+installed into <cite>lib/pythonX.Y/site-packages/</cite>.</p>
+<p>The step will also compile all py files to pyc files and remove any files
+from the tree which aren’t compatible with the active Python version
+(blocklist in the <cite>compile.py</cite> script). The removal step ensures that
+any build tools (for example rpmbuild / mock) that typically call
+<cite>compileall.compile_dir</cite> will work, without breaking on the incompatible
+files.</p>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="metrics.html" class="btn btn-neutral float-right" title="Metrics" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="deploy.html" class="btn btn-neutral" title="Deployment" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2013-2015, Mozilla.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'1.5',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

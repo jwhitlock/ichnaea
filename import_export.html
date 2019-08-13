@@ -1,0 +1,331 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Data Export &mdash; Ichnaea 1.5 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="genindex.html"/>
+        <link rel="search" title="Search" href="search.html"/>
+    <link rel="top" title="Ichnaea 1.5 documentation" href="index.html"/>
+        <link rel="next" title="Installation" href="install/index.html"/>
+        <link rel="prev" title="Transfer (private)" href="api/transfer.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> Ichnaea
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.5
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="usage.html">Using the Service</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/index.html">Services API</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Data Export</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#cell-fields">Cell Fields</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="install/index.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="algo/index.html">Algorithms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="internal_api/index.html">Internal Code API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="glossary.html">Glossary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changes/index.html">Changelog</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Ichnaea</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Data Export</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/import_export.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="data-export">
+<span id="import-export"></span><h1>Data Export<a class="headerlink" href="#data-export" title="Permalink to this headline">¶</a></h1>
+<p>Ichnaea supports automatic, periodic CSV (comma separated values) export
+of aggregate cell data (position estimates).</p>
+<p>The data exchange format was created in collaboration with the
+<a class="reference internal" href="glossary.html#term-opencellid"><span class="xref std std-term">OpenCellID</span></a> project.</p>
+<p>Records should be written one record to a line, with CRLF (0x0D 0x0A)
+as line separator.</p>
+<p>A value should be written as an empty field – two adjacent commas, for
+example – rather than being omitted.</p>
+<p>The first five fields (radio to cell) jointly identify a unique logical cell
+network. The remaining fields contain information about this network.</p>
+<p>The data format does not specify the means and exact algorithms by which the
+position estimate or range calculation was done. The algorithms might be
+unique and changing for each source of the data, though both ichnaea and
+<a class="reference internal" href="glossary.html#term-opencellid"><span class="xref std std-term">OpenCellID</span></a> currently use similar and comparable techniques.</p>
+<p>The fields in the CSV file are as follows:</p>
+<div class="section" id="cell-fields">
+<h2>Cell Fields<a class="headerlink" href="#cell-fields" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal"><span class="pre">radio</span></code></p>
+<blockquote>
+<div>Network type. One of the strings <cite>GSM</cite>,
+<cite>UMTS</cite> (for WCMDA networks) or <cite>LTE</cite>.</div></blockquote>
+<p><code class="docutils literal"><span class="pre">mcc</span></code></p>
+<blockquote>
+<div>Mobile Country Code. An integer, for example <cite>505</cite>, the code for Australia.</div></blockquote>
+<p><code class="docutils literal"><span class="pre">net</span></code></p>
+<blockquote>
+<div>For GSM, UMTS and LTE networks, this is the mobile network code (MNC).
+An integer, for example <cite>4</cite>, the MNC used by Vodaphone in the Netherlands.</div></blockquote>
+<p><code class="docutils literal"><span class="pre">area</span></code></p>
+<blockquote>
+<div>For GSM and UMTS networks, this is the location area code (LAC). For LTE
+networks, this is the tracking area code (TAC).
+An integer, for example <cite>2035</cite>.</div></blockquote>
+<p><code class="docutils literal"><span class="pre">cell</span></code></p>
+<blockquote>
+<div>For GSM and LTE networks, this is the cell id or cell identity (CID).
+For UMTS networks this is the UTRAN cell id, which is the concatenation
+of 2 bytes of radio network controller (RNC) code and 2 bytes of cell id.
+An integer, for example <cite>32345</cite>.</div></blockquote>
+<p><code class="docutils literal"><span class="pre">unit</span></code></p>
+<blockquote>
+<div>For UMTS networks, this is the primary scrambling code (PSC). For LTE
+networks, this is the physical cell id (PCI). For GSM networks,
+this is empty. An integer, for example <cite>312</cite>.</div></blockquote>
+<p><code class="docutils literal"><span class="pre">lon</span></code></p>
+<blockquote>
+<div>Longitude in degrees between -180.0 and 180.0 using the WSG 84 reference
+system. A floating point number, for example <cite>52.3456789</cite>.</div></blockquote>
+<p><code class="docutils literal"><span class="pre">lat</span></code></p>
+<blockquote>
+<div>Latitude in degrees between -90.0 and 90.0 using the WSG 84 reference
+system. A floating point number, for example <cite>-10.034</cite>.</div></blockquote>
+<p><code class="docutils literal"><span class="pre">range</span></code></p>
+<blockquote>
+<div>Estimate of radio range, in meters. This is an estimate on how large each
+cell area is, as a radius around the estimated position and is based on
+the <a class="reference internal" href="glossary.html#term-observations"><span class="xref std std-term">observations</span></a> or a knowledgeable source.
+An integer, for example <cite>2500</cite>.</div></blockquote>
+<p><code class="docutils literal"><span class="pre">samples</span></code></p>
+<blockquote>
+<div>Total number of <a class="reference internal" href="glossary.html#term-observations"><span class="xref std std-term">observations</span></a> used to calculate the estimated
+position, range and averageSignal. An integer, for example <cite>1200</cite>.</div></blockquote>
+<p><code class="docutils literal"><span class="pre">changeable</span></code></p>
+<blockquote>
+<div>Whether or not this cell is a position estimate based on
+<a class="reference internal" href="glossary.html#term-observations"><span class="xref std std-term">observations</span></a>, and therefore subject to change in the future,
+or is an exact location entered from a knowledgeable source. A boolean
+value, encoded as either <cite>1</cite> (for “changeable”) or <cite>0</cite> (for “exact”).</div></blockquote>
+<p><code class="docutils literal"><span class="pre">created</span></code></p>
+<blockquote>
+<div>Timestamp of the time when this record was first created. An integer,
+counting seconds since the UTC Unix Epoch of 1970-01-01T00:00:00Z.
+For example, <cite>1406204196</cite>, which is the timestamp for 2014-07-24T12:16:36Z.</div></blockquote>
+<p><code class="docutils literal"><span class="pre">updated</span></code></p>
+<blockquote>
+<div>Timestamp of the time when this record was most recently modified. An
+integer, counting seconds since the UTC Unix Epoch of 1970-01-01T00:00:00Z.
+For example, <cite>1406204196</cite>, which is the timestamp for 2014-07-24T12:16:36Z.</div></blockquote>
+<p><code class="docutils literal"><span class="pre">averageSignal</span></code></p>
+<blockquote>
+<div><p>Average signal strength from all observations for the cell network.
+An integer value, in dBm. For example, <cite>-72</cite>.</p>
+<p>This field is only used by the <a class="reference internal" href="glossary.html#term-opencellid"><span class="xref std std-term">OpenCellID</span></a> project and has
+been used historically as a hint towards the quality of the
+position estimate.</p>
+</div></blockquote>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="install/index.html" class="btn btn-neutral float-right" title="Installation" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="api/transfer.html" class="btn btn-neutral" title="Transfer (private)" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2013-2015, Mozilla.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'1.5',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

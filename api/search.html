@@ -1,0 +1,456 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Search (Deprecated) &mdash; Ichnaea 1.5 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
+    <link rel="top" title="Ichnaea 1.5 documentation" href="../index.html"/>
+        <link rel="up" title="Services API" href="index.html"/>
+        <link rel="next" title="Submit (Deprecated)" href="submit.html"/>
+        <link rel="prev" title="Geosubmit (Deprecated)" href="geosubmit.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Ichnaea
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.5
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../usage.html">Using the Service</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Services API</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="index.html#api-access-keys">API Access Keys</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#errors">Errors</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html#apis">APIs</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="geolocate.html">Geolocate</a></li>
+<li class="toctree-l3"><a class="reference internal" href="region.html">Region</a></li>
+<li class="toctree-l3"><a class="reference internal" href="geosubmit2.html">Geosubmit Version 2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="geosubmit.html">Geosubmit (Deprecated)</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Search (Deprecated)</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#request">Request</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#field-definition">Field Definition</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#response">Response</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="submit.html">Submit (Deprecated)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="transfer.html">Transfer (private)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../import_export.html">Data Export</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../install/index.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../algo/index.html">Algorithms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../internal_api/index.html">Internal Code API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../glossary.html">Glossary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../changes/index.html">Changelog</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Ichnaea</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">Services API</a> &raquo;</li>
+        
+      <li>Search (Deprecated)</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/api/search.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="search-deprecated">
+<span id="api-search"></span><h1>Search (Deprecated)<a class="headerlink" href="#search-deprecated" title="Permalink to this headline">¶</a></h1>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Please use the <a class="reference internal" href="geolocate.html#api-geolocate-latest"><span class="std std-ref">Geolocate</span></a> API instead.</p>
+</div>
+<dl class="docutils">
+<dt>Purpose</dt>
+<dd>Determine the current location based on data provided about nearby
+Bluetooth, cell or WiFi networks and based on the IP address used
+to access the service.</dd>
+</dl>
+<div class="section" id="request">
+<h2>Request<a class="headerlink" href="#request" title="Permalink to this headline">¶</a></h2>
+<p>Search requests are submitted using a POST request to the URL:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>https://location.services.mozilla.com/v1/search?key=&lt;API_KEY&gt;
+</pre></div>
+</div>
+<p>A search record can contain a list of Bluetooth, cell and WiFi records.</p>
+<p>A example of a well formed JSON search request :</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">&quot;radio&quot;</span><span class="o">:</span> <span class="s2">&quot;gsm&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;blue&quot;</span><span class="o">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="s2">&quot;key&quot;</span><span class="o">:</span> <span class="s2">&quot;ff:23:45:67:89:ab&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;age&quot;</span><span class="o">:</span> <span class="mi">1000</span><span class="p">,</span>
+            <span class="s2">&quot;signal&quot;</span><span class="o">:</span> <span class="o">-</span><span class="mi">110</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="s2">&quot;key&quot;</span><span class="o">:</span> <span class="s2">&quot;ff:23:45:67:89:cd&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;signal&quot;</span><span class="o">:</span> <span class="o">-</span><span class="mi">105</span>
+        <span class="p">}</span>
+    <span class="p">],</span>
+    <span class="s2">&quot;cell&quot;</span><span class="o">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="s2">&quot;radio&quot;</span><span class="o">:</span> <span class="s2">&quot;umts&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;mcc&quot;</span><span class="o">:</span> <span class="mi">123</span><span class="p">,</span>
+            <span class="s2">&quot;mnc&quot;</span><span class="o">:</span> <span class="mi">123</span><span class="p">,</span>
+            <span class="s2">&quot;lac&quot;</span><span class="o">:</span> <span class="mi">12345</span><span class="p">,</span>
+            <span class="s2">&quot;cid&quot;</span><span class="o">:</span> <span class="mi">12345</span><span class="p">,</span>
+            <span class="s2">&quot;signal&quot;</span><span class="o">:</span> <span class="o">-</span><span class="mi">61</span><span class="p">,</span>
+            <span class="s2">&quot;age&quot;</span><span class="o">:</span> <span class="mi">1500</span><span class="p">,</span>
+            <span class="s2">&quot;asu&quot;</span><span class="o">:</span> <span class="mi">26</span>
+        <span class="p">}</span>
+    <span class="p">],</span>
+    <span class="s2">&quot;wifi&quot;</span><span class="o">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="s2">&quot;key&quot;</span><span class="o">:</span> <span class="s2">&quot;01:23:45:67:89:ab&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;age&quot;</span><span class="o">:</span> <span class="mi">3000</span><span class="p">,</span>
+            <span class="s2">&quot;channel&quot;</span><span class="o">:</span> <span class="mi">11</span><span class="p">,</span>
+            <span class="s2">&quot;frequency&quot;</span><span class="o">:</span> <span class="mi">2412</span><span class="p">,</span>
+            <span class="s2">&quot;signal&quot;</span><span class="o">:</span> <span class="o">-</span><span class="mi">50</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="s2">&quot;key&quot;</span><span class="o">:</span> <span class="s2">&quot;01:23:45:67:ab:cd&quot;</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="s2">&quot;key&quot;</span><span class="o">:</span> <span class="s2">&quot;01:23:45:67:cd:ef&quot;</span>
+        <span class="p">}</span>
+    <span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="field-definition">
+<h2>Field Definition<a class="headerlink" href="#field-definition" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="bluetooth-fields">
+<h3>Bluetooth Fields<a class="headerlink" href="#bluetooth-fields" title="Permalink to this headline">¶</a></h3>
+<p>For <cite>blue</cite> entries, the <cite>key</cite> field is required.</p>
+<dl class="docutils">
+<dt>key <strong>(required)</strong></dt>
+<dd>The <cite>key</cite> is the mac address of the Bluetooth network. So for example
+a valid key would look similar to <cite>ff:23:45:67:89:ab</cite>.</dd>
+<dt>age</dt>
+<dd>The number of milliseconds since this BLE beacon was last seen.</dd>
+<dt>signal</dt>
+<dd>The received signal strength (RSSI) in dBm, typically in the range of
+-10 to -127.</dd>
+<dt>name</dt>
+<dd>The name of the Bluetooth network.</dd>
+</dl>
+</div>
+<div class="section" id="cell-fields">
+<h3>Cell Fields<a class="headerlink" href="#cell-fields" title="Permalink to this headline">¶</a></h3>
+<dl class="docutils">
+<dt>radio</dt>
+<dd>The type of radio network. One of <cite>gsm</cite>, <cite>umts</cite> or <cite>lte</cite>.</dd>
+<dt>mcc</dt>
+<dd>The mobile country code.</dd>
+<dt>mnc</dt>
+<dd>The mobile network code.</dd>
+<dt>lac</dt>
+<dd>The location area code for GSM and WCDMA networks. The tracking area
+code for LTE networks.</dd>
+<dt>cid</dt>
+<dd>The cell id or cell identity.</dd>
+<dt>age</dt>
+<dd>The number of milliseconds since this networks was last detected.</dd>
+<dt>psc</dt>
+<dd>The primary scrambling code for WCDMA and physical cell id for LTE.</dd>
+<dt>signal</dt>
+<dd>The signal strength for this cell network, either the RSSI or RSCP.</dd>
+<dt>ta</dt>
+<dd>The timing advance value for this cell network.</dd>
+</dl>
+</div>
+<div class="section" id="wifi-fields">
+<h3>WiFi Fields<a class="headerlink" href="#wifi-fields" title="Permalink to this headline">¶</a></h3>
+<p>For <cite>wifi</cite> entries, the <cite>key</cite> field is required. The client must check the
+Wifi SSID for a <cite>_nomap</cite> suffix. Wifi networks with such a suffix must not be
+submitted to the server.</p>
+<p>Most devices will only report the WiFi frequency or the WiFi channel,
+but not both. The service will accept both if they are provided,
+but you can include only one or omit both fields.</p>
+<dl class="docutils">
+<dt>key <strong>(required)</strong></dt>
+<dd><p class="first">The client must check the WiFi SSID for a <cite>_nomap</cite>
+suffix. WiFi networks with such a suffix must not be submitted to the
+server. WiFi networks with a hidden SSID should not be submitted to the
+server either.</p>
+<p class="last">The <cite>key</cite> is the BSSID of the WiFi network. So for example
+a valid key would look similar to <cite>01:23:45:67:89:ab</cite>.</p>
+</dd>
+<dt>age</dt>
+<dd>The number of milliseconds since this network was last detected.</dd>
+<dt>frequency</dt>
+<dd>The frequency in MHz of the channel over which the client is
+communicating with the access point.</dd>
+<dt>channel</dt>
+<dd>The channel is a number specified by the IEEE which represents a
+small band of frequencies.</dd>
+<dt>signal</dt>
+<dd>The received signal strength (RSSI) in dBm, typically in the range of
+-51 to -113.</dd>
+<dt>signalToNoiseRatio</dt>
+<dd>The current signal to noise ratio measured in dB.</dd>
+<dt>ssid</dt>
+<dd>The SSID of the Wifi network. Wifi networks with a SSID ending in
+<cite>_nomap</cite> must not be collected.</dd>
+</dl>
+<p>An example of a valid WiFi record is below:</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">&quot;key&quot;</span><span class="o">:</span> <span class="s2">&quot;01:23:45:67:89:ab&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;age&quot;</span><span class="o">:</span> <span class="mi">1500</span><span class="p">,</span>
+    <span class="s2">&quot;channel&quot;</span><span class="o">:</span> <span class="mi">11</span><span class="p">,</span>
+    <span class="s2">&quot;frequency&quot;</span><span class="o">:</span> <span class="mi">2412</span><span class="p">,</span>
+    <span class="s2">&quot;signal&quot;</span><span class="o">:</span> <span class="o">-</span><span class="mi">51</span><span class="p">,</span>
+    <span class="s2">&quot;signalToNoiseRatio&quot;</span><span class="o">:</span> <span class="mi">37</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="mapping-records-into-a-search-request">
+<h3>Mapping records into a search request<a class="headerlink" href="#mapping-records-into-a-search-request" title="Permalink to this headline">¶</a></h3>
+<p>The mapping can contain zero or more Bluetooth records, zero or more WiFi
+records and zero or more cell records. If any list of records is empty,
+it can be omitted entirely.</p>
+<p>For Bluetooth and WiFi lookups at least two keys of nearby networks need
+to be provided. This is an industry standard that is meant to prevent you
+from looking up the position of a single network over time.</p>
+</div>
+</div>
+<div class="section" id="response">
+<h2>Response<a class="headerlink" href="#response" title="Permalink to this headline">¶</a></h2>
+<p>A successful response will be:</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">&quot;status&quot;</span><span class="o">:</span> <span class="s2">&quot;ok&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;lat&quot;</span><span class="o">:</span> <span class="o">-</span><span class="mf">22.7539192</span><span class="p">,</span>
+    <span class="s2">&quot;lon&quot;</span><span class="o">:</span> <span class="o">-</span><span class="mf">43.4371081</span><span class="p">,</span>
+    <span class="s2">&quot;accuracy&quot;</span><span class="o">:</span> <span class="mf">100.0</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>The latitude and longitude are numbers, with seven decimal places of
+actual precision. The coordinate reference system is WGS 84. The accuracy
+is an integer measured in meters and defines a circle around the location.</p>
+<p>Should the response be based on a GeoIP estimate:</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">&quot;status&quot;</span><span class="o">:</span> <span class="s2">&quot;ok&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;lat&quot;</span><span class="o">:</span> <span class="mf">51.0</span><span class="p">,</span>
+    <span class="s2">&quot;lon&quot;</span><span class="o">:</span> <span class="o">-</span><span class="mf">0.1</span><span class="p">,</span>
+    <span class="s2">&quot;accuracy&quot;</span><span class="o">:</span> <span class="mf">600000.0</span><span class="p">,</span>
+    <span class="s2">&quot;fallback&quot;</span><span class="o">:</span> <span class="s2">&quot;ipf&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Alternatively the fallback field can also state <cite>lacf</cite> for an estimate
+based on a cell location area.</p>
+<p>If no position can be determined, you instead get:</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">&quot;status&quot;</span><span class="o">:</span> <span class="s2">&quot;not_found&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="submit.html" class="btn btn-neutral float-right" title="Submit (Deprecated)" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="geosubmit.html" class="btn btn-neutral" title="Geosubmit (Deprecated)" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2013-2015, Mozilla.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'1.5',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

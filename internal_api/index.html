@@ -1,0 +1,364 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Internal Code API &mdash; Ichnaea 1.5 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
+    <link rel="top" title="Ichnaea 1.5 documentation" href="../index.html"/>
+        <link rel="next" title="ichnaea.api" href="api/index.html"/>
+        <link rel="prev" title="Accuracy" href="../algo/accuracy.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Ichnaea
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.5
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../usage.html">Using the Service</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/index.html">Services API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../import_export.html">Data Export</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../install/index.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../algo/index.html">Algorithms</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Internal Code API</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#overview">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#indices-and-tables">Indices and Tables</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api/index.html"><code class="docutils literal"><span class="pre">ichnaea.api</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="async/index.html"><code class="docutils literal"><span class="pre">ichnaea.async</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="cache.html"><code class="docutils literal"><span class="pre">ichnaea.cache</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="config.html"><code class="docutils literal"><span class="pre">ichnaea.config</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="constants.html"><code class="docutils literal"><span class="pre">ichnaea.constants</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="content/index.html"><code class="docutils literal"><span class="pre">ichnaea.content</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="data/index.html"><code class="docutils literal"><span class="pre">ichnaea.data</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="db.html"><code class="docutils literal"><span class="pre">ichnaea.db</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="exceptions.html"><code class="docutils literal"><span class="pre">ichnaea.exceptions</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="floatjson.html"><code class="docutils literal"><span class="pre">ichnaea.floatjson</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="geocalc.html"><code class="docutils literal"><span class="pre">ichnaea.geocalc</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="geocode.html"><code class="docutils literal"><span class="pre">ichnaea.geocode</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="geoip.html"><code class="docutils literal"><span class="pre">ichnaea.geoip</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="http.html"><code class="docutils literal"><span class="pre">ichnaea.http</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="log.html"><code class="docutils literal"><span class="pre">ichnaea.log</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/index.html"><code class="docutils literal"><span class="pre">ichnaea.models</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="queue.html"><code class="docutils literal"><span class="pre">ichnaea.queue</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="scripts/index.html"><code class="docutils literal"><span class="pre">ichnaea.scripts</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="util.html"><code class="docutils literal"><span class="pre">ichnaea.util</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="webapp/index.html"><code class="docutils literal"><span class="pre">ichnaea.webapp</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../glossary.html">Glossary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../changes/index.html">Changelog</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Ichnaea</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>Internal Code API</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/internal_api/index.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="internal-code-api">
+<span id="internal"></span><h1>Internal Code API<a class="headerlink" href="#internal-code-api" title="Permalink to this headline">¶</a></h1>
+<p>This section describes the internal Python API’s used throughout the code base.
+For documentation on the public HTTP API please look at <a class="reference internal" href="../api/index.html#service-api"><span class="std std-ref">Services API</span></a>.</p>
+<div class="section" id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<p>The code is structured around a couple of larger functional areas in
+addition to top-level helper modules.</p>
+<p>There are two sub-packages <cite>async</cite> and <cite>webapp</cite> related to runtime
+configuration and settings of the two process classes. <cite>async</cite> deals
+with Celery and <cite>webapp</cite> deals with <cite>gunicorn</cite>.</p>
+<p>The <cite>api</cite> sub-package deals with the implementation of the public
+HTTP API. The <cite>content</cite> sub-package includes the public website content.
+The <cite>data</cite> sub-package includes the data pipeline code, in the form of
+asynchronous Celery tasks. The <cite>models</cite> sub-package deals with database
+models and schema validation. <cite>scripts</cite> has the implementation of
+command line scripts.</p>
+</div>
+<div class="section" id="indices-and-tables">
+<h2>Indices and Tables<a class="headerlink" href="#indices-and-tables" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><a class="reference internal" href="../genindex.html"><span class="std std-ref">Index</span></a></li>
+<li><a class="reference internal" href="../py-modindex.html"><span class="std std-ref">Module Index</span></a></li>
+</ul>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="api/index.html"><code class="docutils literal"><span class="pre">ichnaea.api</span></code></a><ul>
+<li class="toctree-l2"><a class="reference internal" href="api/config.html"><code class="docutils literal"><span class="pre">ichnaea.api.config</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/exceptions.html"><code class="docutils literal"><span class="pre">ichnaea.api.exceptions</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/locate/index.html"><code class="docutils literal"><span class="pre">ichnaea.api.locate</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/rate_limit.html"><code class="docutils literal"><span class="pre">ichnaea.api.rate_limit</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/schema.html"><code class="docutils literal"><span class="pre">ichnaea.api.schema</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/submit/index.html"><code class="docutils literal"><span class="pre">ichnaea.api.submit</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/transfer/index.html"><code class="docutils literal"><span class="pre">ichnaea.api.transfer</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/views.html"><code class="docutils literal"><span class="pre">ichnaea.api.views</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="async/index.html"><code class="docutils literal"><span class="pre">ichnaea.async</span></code></a><ul>
+<li class="toctree-l2"><a class="reference internal" href="async/app.html"><code class="docutils literal"><span class="pre">ichnaea.async.app</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="async/config.html"><code class="docutils literal"><span class="pre">ichnaea.async.config</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="async/settings.html"><code class="docutils literal"><span class="pre">ichnaea.async.settings</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="async/task.html"><code class="docutils literal"><span class="pre">ichnaea.async.task</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="cache.html"><code class="docutils literal"><span class="pre">ichnaea.cache</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="config.html"><code class="docutils literal"><span class="pre">ichnaea.config</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="constants.html"><code class="docutils literal"><span class="pre">ichnaea.constants</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="content/index.html"><code class="docutils literal"><span class="pre">ichnaea.content</span></code></a><ul>
+<li class="toctree-l2"><a class="reference internal" href="content/views.html"><code class="docutils literal"><span class="pre">ichnaea.content.views</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="data/index.html"><code class="docutils literal"><span class="pre">ichnaea.data</span></code></a><ul>
+<li class="toctree-l2"><a class="reference internal" href="data/tasks.html"><code class="docutils literal"><span class="pre">ichnaea.data.tasks</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="db.html"><code class="docutils literal"><span class="pre">ichnaea.db</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="exceptions.html"><code class="docutils literal"><span class="pre">ichnaea.exceptions</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="floatjson.html"><code class="docutils literal"><span class="pre">ichnaea.floatjson</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="geocalc.html"><code class="docutils literal"><span class="pre">ichnaea.geocalc</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="geocode.html"><code class="docutils literal"><span class="pre">ichnaea.geocode</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="geoip.html"><code class="docutils literal"><span class="pre">ichnaea.geoip</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="http.html"><code class="docutils literal"><span class="pre">ichnaea.http</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="log.html"><code class="docutils literal"><span class="pre">ichnaea.log</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="models/index.html"><code class="docutils literal"><span class="pre">ichnaea.models</span></code></a><ul>
+<li class="toctree-l2"><a class="reference internal" href="models/api.html"><code class="docutils literal"><span class="pre">ichnaea.models.api</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="models/base.html"><code class="docutils literal"><span class="pre">ichnaea.models.base</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="models/blue.html"><code class="docutils literal"><span class="pre">ichnaea.models.blue</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="models/cell.html"><code class="docutils literal"><span class="pre">ichnaea.models.cell</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="models/config.html"><code class="docutils literal"><span class="pre">ichnaea.models.config</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="models/constants.html"><code class="docutils literal"><span class="pre">ichnaea.models.constants</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="models/content.html"><code class="docutils literal"><span class="pre">ichnaea.models.content</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="models/mac.html"><code class="docutils literal"><span class="pre">ichnaea.models.mac</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="models/observation.html"><code class="docutils literal"><span class="pre">ichnaea.models.observation</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="models/sa_types.html"><code class="docutils literal"><span class="pre">ichnaea.models.sa_types</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="models/schema.html"><code class="docutils literal"><span class="pre">ichnaea.models.schema</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="models/station.html"><code class="docutils literal"><span class="pre">ichnaea.models.station</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="models/wifi.html"><code class="docutils literal"><span class="pre">ichnaea.models.wifi</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="queue.html"><code class="docutils literal"><span class="pre">ichnaea.queue</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="scripts/index.html"><code class="docutils literal"><span class="pre">ichnaea.scripts</span></code></a><ul>
+<li class="toctree-l2"><a class="reference internal" href="scripts/datamap.html"><code class="docutils literal"><span class="pre">ichnaea.scripts.datamap</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="scripts/initdb.html"><code class="docutils literal"><span class="pre">ichnaea.scripts.initdb</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="scripts/region_json.html"><code class="docutils literal"><span class="pre">ichnaea.scripts.region_json</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="util.html"><code class="docutils literal"><span class="pre">ichnaea.util</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="webapp/index.html"><code class="docutils literal"><span class="pre">ichnaea.webapp</span></code></a><ul>
+<li class="toctree-l2"><a class="reference internal" href="webapp/app.html"><code class="docutils literal"><span class="pre">ichnaea.webapp.app</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="webapp/config.html"><code class="docutils literal"><span class="pre">ichnaea.webapp.config</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="webapp/monitor.html"><code class="docutils literal"><span class="pre">ichnaea.webapp.monitor</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="webapp/settings.html"><code class="docutils literal"><span class="pre">ichnaea.webapp.settings</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="webapp/view.html"><code class="docutils literal"><span class="pre">ichnaea.webapp.view</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="webapp/worker.html"><code class="docutils literal"><span class="pre">ichnaea.webapp.worker</span></code></a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="api/index.html" class="btn btn-neutral float-right" title="ichnaea.api" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../algo/accuracy.html" class="btn btn-neutral" title="Accuracy" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2013-2015, Mozilla.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'1.5',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

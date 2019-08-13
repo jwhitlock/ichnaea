@@ -1,0 +1,348 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Submit (Deprecated) &mdash; Ichnaea 1.5 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
+    <link rel="top" title="Ichnaea 1.5 documentation" href="../index.html"/>
+        <link rel="up" title="Services API" href="index.html"/>
+        <link rel="next" title="Transfer (private)" href="transfer.html"/>
+        <link rel="prev" title="Search (Deprecated)" href="search.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Ichnaea
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.5
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../usage.html">Using the Service</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Services API</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="index.html#api-access-keys">API Access Keys</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#errors">Errors</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html#apis">APIs</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="geolocate.html">Geolocate</a></li>
+<li class="toctree-l3"><a class="reference internal" href="region.html">Region</a></li>
+<li class="toctree-l3"><a class="reference internal" href="geosubmit2.html">Geosubmit Version 2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="geosubmit.html">Geosubmit (Deprecated)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="search.html">Search (Deprecated)</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Submit (Deprecated)</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#request">Request</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#field-definition">Field Definition</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#response">Response</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="transfer.html">Transfer (private)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../import_export.html">Data Export</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../install/index.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../algo/index.html">Algorithms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../internal_api/index.html">Internal Code API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../glossary.html">Glossary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../changes/index.html">Changelog</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Ichnaea</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">Services API</a> &raquo;</li>
+        
+      <li>Submit (Deprecated)</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/api/submit.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="submit-deprecated">
+<span id="api-submit"></span><h1>Submit (Deprecated)<a class="headerlink" href="#submit-deprecated" title="Permalink to this headline">¶</a></h1>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Please use the <a class="reference internal" href="geosubmit2.html#api-geosubmit-latest"><span class="std std-ref">Geosubmit Version 2</span></a> API instead.</p>
+</div>
+<dl class="docutils">
+<dt>Purpose</dt>
+<dd>Submit data about nearby cell and WiFi networks.</dd>
+</dl>
+<div class="section" id="request">
+<h2>Request<a class="headerlink" href="#request" title="Permalink to this headline">¶</a></h2>
+<p>Submit requests are submitted using a POST request to the following URL:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>https://location.services.mozilla.com/v1/submit?key=&lt;API_KEY&gt;
+</pre></div>
+</div>
+<p>with a JSON body:</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="p">{</span><span class="s2">&quot;items&quot;</span><span class="o">:</span> <span class="p">[</span>
+   <span class="p">{</span>
+    <span class="s2">&quot;lat&quot;</span><span class="o">:</span> <span class="o">-</span><span class="mf">22.7539192</span><span class="p">,</span>
+    <span class="s2">&quot;lon&quot;</span><span class="o">:</span> <span class="o">-</span><span class="mf">43.4371081</span><span class="p">,</span>
+    <span class="s2">&quot;time&quot;</span><span class="o">:</span> <span class="s2">&quot;2012-03-01T00:00:00.000Z&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;accuracy&quot;</span><span class="o">:</span> <span class="mf">10.0</span><span class="p">,</span>
+    <span class="s2">&quot;altitude&quot;</span><span class="o">:</span> <span class="mf">100.0</span><span class="p">,</span>
+    <span class="s2">&quot;altitude_accuracy&quot;</span><span class="o">:</span> <span class="mf">1.0</span><span class="p">,</span>
+    <span class="s2">&quot;heading&quot;</span><span class="o">:</span> <span class="mf">45.0</span><span class="p">,</span>
+    <span class="s2">&quot;speed&quot;</span><span class="o">:</span> <span class="mf">13.88</span><span class="p">,</span>
+    <span class="s2">&quot;radio&quot;</span><span class="o">:</span> <span class="s2">&quot;gsm&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;blue&quot;</span><span class="o">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="s2">&quot;key&quot;</span><span class="o">:</span> <span class="s2">&quot;ff:74:27:89:5a:77&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;age&quot;</span><span class="o">:</span> <span class="mi">2000</span><span class="p">,</span>
+            <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;beacon&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;signal&quot;</span><span class="o">:</span> <span class="o">-</span><span class="mi">110</span>
+        <span class="p">}</span>
+    <span class="p">],</span>
+    <span class="s2">&quot;cell&quot;</span><span class="o">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="s2">&quot;radio&quot;</span><span class="o">:</span> <span class="s2">&quot;umts&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;mcc&quot;</span><span class="o">:</span> <span class="mi">123</span><span class="p">,</span>
+            <span class="s2">&quot;mnc&quot;</span><span class="o">:</span> <span class="mi">123</span><span class="p">,</span>
+            <span class="s2">&quot;lac&quot;</span><span class="o">:</span> <span class="mi">12345</span><span class="p">,</span>
+            <span class="s2">&quot;cid&quot;</span><span class="o">:</span> <span class="mi">12345</span><span class="p">,</span>
+            <span class="s2">&quot;age&quot;</span><span class="o">:</span> <span class="mi">3000</span><span class="p">,</span>
+            <span class="s2">&quot;signal&quot;</span><span class="o">:</span> <span class="o">-</span><span class="mi">60</span>
+        <span class="p">}</span>
+    <span class="p">],</span>
+    <span class="s2">&quot;wifi&quot;</span><span class="o">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="s2">&quot;key&quot;</span><span class="o">:</span> <span class="s2">&quot;01:23:45:67:89:ab&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;age&quot;</span><span class="o">:</span> <span class="mi">2000</span><span class="p">,</span>
+            <span class="s2">&quot;channel&quot;</span><span class="o">:</span> <span class="mi">11</span><span class="p">,</span>
+            <span class="s2">&quot;frequency&quot;</span><span class="o">:</span> <span class="mi">2412</span><span class="p">,</span>
+            <span class="s2">&quot;signal&quot;</span><span class="o">:</span> <span class="o">-</span><span class="mi">51</span>
+        <span class="p">}</span>
+    <span class="p">]</span>
+   <span class="p">}</span>
+   <span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="field-definition">
+<h2>Field Definition<a class="headerlink" href="#field-definition" title="Permalink to this headline">¶</a></h2>
+<p>The record fields have the same meaning and requirements as explained
+in the <a class="reference internal" href="search.html#api-search"><span class="std std-ref">Search (Deprecated)</span></a>.</p>
+<p>The only required fields are <cite>lat</cite> and <cite>lon</cite> and at least one Bluetooth,
+cell or WiFi entry. If neither <cite>lat</cite> nor <cite>lon</cite> are included, the record
+will be discarded.</p>
+<p>The altitude, accuracy and altitude_accuracy fields are all measured in
+meters. Altitude measures the height above or below the mean sea level,
+as defined by WGS84.</p>
+<p>The heading field specifies the direction of travel in
+0 &lt;= heading &lt;= 360 degrees, counting clockwise relative to the true north.</p>
+<p>The speed field specifies the current horizontal velocity and is measured
+in meters per second.</p>
+<p>The heading and speed fields should be omitted from the report, if the
+speed and heading cannot be determined or the device was stationary
+while observing the environment.</p>
+<p>The time has to be in UTC time, encoded in ISO 8601. If not provided,
+the server time will be used.</p>
+</div>
+<div class="section" id="response">
+<h2>Response<a class="headerlink" href="#response" title="Permalink to this headline">¶</a></h2>
+<p>On successful submission, you will get a 204 status code back without
+any data in the body.</p>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="transfer.html" class="btn btn-neutral float-right" title="Transfer (private)" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="search.html" class="btn btn-neutral" title="Search (Deprecated)" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2013-2015, Mozilla.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'1.5',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

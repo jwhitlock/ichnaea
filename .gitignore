@@ -1,0 +1,14 @@
+.coverage
+.coveragerc
+.tox
+bin/
+bower_components/
+build/
+docs/
+ichnaea*
+include/
+lib/
+libmaxminddb/
+man/
+node_modules/
+src/

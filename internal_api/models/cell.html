@@ -1,0 +1,438 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>ichnaea.models.cell &mdash; Ichnaea 1.5 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../genindex.html"/>
+        <link rel="search" title="Search" href="../../search.html"/>
+    <link rel="top" title="Ichnaea 1.5 documentation" href="../../index.html"/>
+        <link rel="up" title="ichnaea.models" href="index.html"/>
+        <link rel="next" title="ichnaea.models.config" href="config.html"/>
+        <link rel="prev" title="ichnaea.models.blue" href="blue.html"/> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Ichnaea
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.5
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../usage.html">Using the Service</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../api/index.html">Services API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../import_export.html">Data Export</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../install/index.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../algo/index.html">Algorithms</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Internal Code API</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../index.html#overview">Overview</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html#indices-and-tables">Indices and Tables</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../api/index.html"><code class="docutils literal"><span class="pre">ichnaea.api</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../async/index.html"><code class="docutils literal"><span class="pre">ichnaea.async</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../cache.html"><code class="docutils literal"><span class="pre">ichnaea.cache</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../config.html"><code class="docutils literal"><span class="pre">ichnaea.config</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../constants.html"><code class="docutils literal"><span class="pre">ichnaea.constants</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../content/index.html"><code class="docutils literal"><span class="pre">ichnaea.content</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../data/index.html"><code class="docutils literal"><span class="pre">ichnaea.data</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../db.html"><code class="docutils literal"><span class="pre">ichnaea.db</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../exceptions.html"><code class="docutils literal"><span class="pre">ichnaea.exceptions</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../floatjson.html"><code class="docutils literal"><span class="pre">ichnaea.floatjson</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../geocalc.html"><code class="docutils literal"><span class="pre">ichnaea.geocalc</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../geocode.html"><code class="docutils literal"><span class="pre">ichnaea.geocode</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../geoip.html"><code class="docutils literal"><span class="pre">ichnaea.geoip</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../http.html"><code class="docutils literal"><span class="pre">ichnaea.http</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../log.html"><code class="docutils literal"><span class="pre">ichnaea.log</span></code></a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="index.html"><code class="docutils literal"><span class="pre">ichnaea.models</span></code></a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="api.html"><code class="docutils literal"><span class="pre">ichnaea.models.api</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="base.html"><code class="docutils literal"><span class="pre">ichnaea.models.base</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="blue.html"><code class="docutils literal"><span class="pre">ichnaea.models.blue</span></code></a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#"><code class="docutils literal"><span class="pre">ichnaea.models.cell</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="config.html"><code class="docutils literal"><span class="pre">ichnaea.models.config</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="constants.html"><code class="docutils literal"><span class="pre">ichnaea.models.constants</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="content.html"><code class="docutils literal"><span class="pre">ichnaea.models.content</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mac.html"><code class="docutils literal"><span class="pre">ichnaea.models.mac</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="observation.html"><code class="docutils literal"><span class="pre">ichnaea.models.observation</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="sa_types.html"><code class="docutils literal"><span class="pre">ichnaea.models.sa_types</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="schema.html"><code class="docutils literal"><span class="pre">ichnaea.models.schema</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="station.html"><code class="docutils literal"><span class="pre">ichnaea.models.station</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="wifi.html"><code class="docutils literal"><span class="pre">ichnaea.models.wifi</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../queue.html"><code class="docutils literal"><span class="pre">ichnaea.queue</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../scripts/index.html"><code class="docutils literal"><span class="pre">ichnaea.scripts</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../util.html"><code class="docutils literal"><span class="pre">ichnaea.util</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../webapp/index.html"><code class="docutils literal"><span class="pre">ichnaea.webapp</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../glossary.html">Glossary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../changes/index.html">Changelog</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Ichnaea</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">Internal Code API</a> &raquo;</li>
+        
+          <li><a href="index.html"><code class="docutils literal"><span class="pre">ichnaea.models</span></code></a> &raquo;</li>
+        
+      <li><code class="docutils literal"><span class="pre">ichnaea.models.cell</span></code></li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/internal_api/models/cell.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="ichnaea-models-cell">
+<h1><code class="xref py py-mod docutils literal"><span class="pre">ichnaea.models.cell</span></code><a class="headerlink" href="#ichnaea-models-cell" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="cell-networks">
+<h2>Cell Networks<a class="headerlink" href="#cell-networks" title="Permalink to this headline">¶</a></h2>
+<p>As part of the public API and the internal models, we define unique keys
+and additional data for each cell network. Depending on the cell radio
+network type, these records contain different information.</p>
+<p>The classification of radio types is based on the <a class="reference external" href="http://developer.android.com/reference/android/telephony/TelephonyManager.html">Android TelephonyManager
+constants</a>.
+A similar classification exists for Firefox OS devices with the
+<a class="reference external" href="https://developer.mozilla.org/en-US/docs/Web/API/MozMobileConnectionInfo.type">MozMobileConnectionInfo API</a>.</p>
+<div class="section" id="gsm">
+<h3>GSM<a class="headerlink" href="#gsm" title="Permalink to this headline">¶</a></h3>
+<p>If the network is either GSM or any high-data-rate variant of it, the radio
+type should be specified as <cite>gsm</cite>. This includes <cite>GSM</cite>, <cite>EDGE</cite> and <cite>GPRS</cite>.</p>
+<p>Example:</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">&quot;radio&quot;</span><span class="o">:</span> <span class="s2">&quot;gsm&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;mcc&quot;</span><span class="o">:</span> <span class="mi">123</span><span class="p">,</span>
+    <span class="s2">&quot;mnc&quot;</span><span class="o">:</span> <span class="mi">123</span><span class="p">,</span>
+    <span class="s2">&quot;lac&quot;</span><span class="o">:</span> <span class="mi">12345</span><span class="p">,</span>
+    <span class="s2">&quot;cid&quot;</span><span class="o">:</span> <span class="mi">12345</span><span class="p">,</span>
+    <span class="s2">&quot;signal&quot;</span><span class="o">:</span> <span class="o">-</span><span class="mi">61</span><span class="p">,</span>
+    <span class="s2">&quot;asu&quot;</span><span class="o">:</span> <span class="mi">26</span><span class="p">,</span>
+    <span class="s2">&quot;ta&quot;</span><span class="o">:</span> <span class="mi">10</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<dl class="docutils">
+<dt>radio <strong>(required)</strong></dt>
+<dd>The string <cite>gsm</cite>.</dd>
+<dt>mcc <strong>(required)</strong></dt>
+<dd>The mobile country code. An integer in the range of 1 to 999.</dd>
+<dt>mnc <strong>(required)</strong></dt>
+<dd>The mobile network code. An integer in the range of 0 to 999.</dd>
+<dt>lac <strong>(required)</strong></dt>
+<dd>The location area code. An integer in the range of 1 to 65533.
+According to <a class="reference external" href="http://www.etsi.org/deliver/etsi_ts/124000_124099/124008/12.07.00_60/ts_124008v120700p.pdf#page=431">TS 24.008 10.5.3</a> both 0 and 65534 are reserved
+values indicating a deleted state.</dd>
+<dt>cid <strong>(required)</strong></dt>
+<dd>The cell id. An integer in the range of 1 to 65535.</dd>
+<dt>signal</dt>
+<dd>The received signal strength (RSSI) in dBm, typically in the range of
+-51 to -113 (optional).</dd>
+<dt>asu</dt>
+<dd>The arbitrary strength unit. An integer in the range of 0 to 31 (optional).
+Unknown values can be marked with a value of 99.
+The formula: <code class="docutils literal"><span class="pre">RSSI</span> <span class="pre">[dBm]</span> <span class="pre">=</span> <span class="pre">(2x</span> <span class="pre">ASU)</span> <span class="pre">–</span> <span class="pre">113</span></code>.</dd>
+<dt>ta</dt>
+<dd>The timing advance. An integer in the range of 0 to 63 (optional).</dd>
+</dl>
+</div>
+<div class="section" id="wcdma">
+<h3>WCDMA<a class="headerlink" href="#wcdma" title="Permalink to this headline">¶</a></h3>
+<p>If the network is either WCDMA or any high-data-rate variant of it, the radio
+field should be specified as <cite>wcdma</cite>. This includes <cite>UMTS</cite>, <cite>HSPA</cite>, <cite>HSDPA</cite>,
+<cite>HSPA+</cite> and <cite>HSUPA</cite>.</p>
+<p>Example:</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">&quot;radio&quot;</span><span class="o">:</span> <span class="s2">&quot;umts&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;mcc&quot;</span><span class="o">:</span> <span class="mi">123</span><span class="p">,</span>
+    <span class="s2">&quot;mnc&quot;</span><span class="o">:</span> <span class="mi">123</span><span class="p">,</span>
+    <span class="s2">&quot;lac&quot;</span><span class="o">:</span> <span class="mi">12345</span><span class="p">,</span>
+    <span class="s2">&quot;cid&quot;</span><span class="o">:</span> <span class="mi">123456789</span><span class="p">,</span>
+    <span class="s2">&quot;psc&quot;</span><span class="o">:</span> <span class="mi">123</span><span class="p">,</span>
+    <span class="s2">&quot;signal&quot;</span><span class="o">:</span> <span class="o">-</span><span class="mi">68</span><span class="p">,</span>
+    <span class="s2">&quot;asu&quot;</span><span class="o">:</span> <span class="mi">48</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<dl class="docutils">
+<dt>radio <strong>(required)</strong></dt>
+<dd>The string <cite>wcdma</cite>.</dd>
+<dt>mcc <strong>(required)</strong></dt>
+<dd>The mobile country code. An integer in the range of 1 to 999.</dd>
+<dt>mnc <strong>(required)</strong></dt>
+<dd>The mobile network code. An integer in the range of 0 to 999.</dd>
+<dt>lac <strong>(required)</strong></dt>
+<dd>The location area code. An integer in the range of 1 to 65533.
+According to <a class="reference external" href="http://www.etsi.org/deliver/etsi_ts/124000_124099/124008/12.07.00_60/ts_124008v120700p.pdf#page=431">TS 24.008 10.5.3</a> both 0 and 65534 are reserved
+values indicating a deleted state.</dd>
+<dt>cid <strong>(required)</strong></dt>
+<dd>The cell id. An integer in the range of 1 to 268435455.</dd>
+<dt>psc</dt>
+<dd>The primary scrambling code as an integer in the range of 0 to 511
+(optional).</dd>
+<dt>signal</dt>
+<dd>The received signal code power (RSCP) in dBm, typically in the range of
+-25 to -121 (optional).</dd>
+<dt>asu</dt>
+<dd>The arbitrary strength unit. An integer in the range of -5 to 91 (optional).
+Unknown values can be marked with a value of 255.
+The formula: <code class="docutils literal"><span class="pre">RSCP</span> <span class="pre">[dBm]</span> <span class="pre">=</span> <span class="pre">ASU</span> <span class="pre">-</span> <span class="pre">116</span></code>.</dd>
+</dl>
+<p>A special case exists for WCDMA cells, to send data about neighboring cells.
+For these it is acceptable to omit the lac and cid fields if at the same
+time a valid psc field is submitted.</p>
+</div>
+<div class="section" id="lte">
+<h3>LTE<a class="headerlink" href="#lte" title="Permalink to this headline">¶</a></h3>
+<p>Example:</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">&quot;radio&quot;</span><span class="o">:</span> <span class="s2">&quot;lte&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;mcc&quot;</span><span class="o">:</span> <span class="mi">123</span><span class="p">,</span>
+    <span class="s2">&quot;mnc&quot;</span><span class="o">:</span> <span class="mi">123</span><span class="p">,</span>
+    <span class="s2">&quot;lac&quot;</span><span class="o">:</span> <span class="mi">12345</span><span class="p">,</span>
+    <span class="s2">&quot;cid&quot;</span><span class="o">:</span> <span class="mi">12345</span><span class="p">,</span>
+    <span class="s2">&quot;psc&quot;</span><span class="o">:</span> <span class="mi">123</span><span class="p">,</span>
+    <span class="s2">&quot;signal&quot;</span><span class="o">:</span> <span class="o">-</span><span class="mi">69</span><span class="p">,</span>
+    <span class="s2">&quot;asu&quot;</span><span class="o">:</span> <span class="mi">71</span><span class="p">,</span>
+    <span class="s2">&quot;ta&quot;</span><span class="o">:</span> <span class="mi">10</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<dl class="docutils">
+<dt>radio <strong>(required)</strong></dt>
+<dd>The string <cite>lte</cite>.</dd>
+<dt>mcc <strong>(required)</strong></dt>
+<dd>The mobile country code. An integer in the range of 1 to 999.</dd>
+<dt>mnc <strong>(required)</strong></dt>
+<dd>The mobile network code. An integer in the range of 0 to 999.</dd>
+<dt>lac <strong>(required)</strong></dt>
+<dd>The tracking area code. An integer in the range of 1 to 65533.
+According to <a class="reference external" href="http://www.etsi.org/deliver/etsi_ts/124300_124399/124301/12.06.00_60/ts_124301v120600p.pdf#page=286">TS 24.301 9.9.3.32</a> both 0 and 65534 are reserved
+values indicating a deleted state.</dd>
+<dt>cid <strong>(required)</strong></dt>
+<dd>The cell identity. An integer in the range of 1 to 268435455.</dd>
+<dt>psc</dt>
+<dd>The physical cell id as an integer in the range of 0 to 503 (optional).</dd>
+<dt>signal</dt>
+<dd>The received signal strength (RSRP) in dBm, typically in the range of
+-43 to -140 (optional).</dd>
+<dt>asu</dt>
+<dd>The arbitrary strength unit. An integer in the range of 0 to 97 (optional).
+The formula: <code class="docutils literal"><span class="pre">RSRP</span> <span class="pre">[dBm]</span> <span class="pre">=</span> <span class="pre">ASU</span> <span class="pre">–</span> <span class="pre">140</span></code>.</dd>
+<dt>ta</dt>
+<dd>The timing advance. An integer in the range of 0 to 63 (optional).</dd>
+</dl>
+<p>A special case exists for LTE cells, to send data about neighboring cells.
+For these it is acceptable to omit the lac and cid fields if at the same
+time a valid psc field is submitted.</p>
+</div>
+<div class="section" id="cdma">
+<h3>CDMA<a class="headerlink" href="#cdma" title="Permalink to this headline">¶</a></h3>
+<p>We classify CDMA networks and their EVDO variants as <cite>cdma</cite>. This includes
+<cite>1xRTT</cite>, <cite>CDMA</cite>, <cite>eHRPD</cite>, <cite>EVDO_0</cite>, <cite>EVDO_A</cite>, <cite>EVDO_B</cite>, <cite>IS95A</cite> and <cite>IS95B</cite>.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Since CDMA networks are rare and only available in a minority
+of regions, this project does not support them.</p>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="config.html" class="btn btn-neutral float-right" title="ichnaea.models.config" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="blue.html" class="btn btn-neutral" title="ichnaea.models.blue" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2013-2015, Mozilla.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'1.5',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

@@ -1,0 +1,460 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Configuration &mdash; Ichnaea 1.5 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
+    <link rel="top" title="Ichnaea 1.5 documentation" href="../index.html"/>
+        <link rel="up" title="Installation" href="index.html"/>
+        <link rel="next" title="Deployment" href="deploy.html"/>
+        <link rel="prev" title="Installation" href="index.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Ichnaea
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.5
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../usage.html">Using the Service</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/index.html">Services API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../import_export.html">Data Export</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Installation</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Configuration</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#configuration-file">Configuration File</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#required-sections">Required Sections</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#optional-sections">Optional Sections</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#database-configuration">Database Configuration</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#api-keys">API Keys</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#export-configuration">Export Configuration</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="deploy.html">Deployment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="devel.html">Development</a></li>
+<li class="toctree-l2"><a class="reference internal" href="metrics.html">Metrics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="testing.html">Testing</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../algo/index.html">Algorithms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../internal_api/index.html">Internal Code API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../glossary.html">Glossary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../changes/index.html">Changelog</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Ichnaea</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">Installation</a> &raquo;</li>
+        
+      <li>Configuration</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/install/config.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="configuration">
+<span id="config"></span><h1>Configuration<a class="headerlink" href="#configuration" title="Permalink to this headline">¶</a></h1>
+<p>As part of deploying the application, you need to create an application
+configuration file, commonly called <code class="docutils literal"><span class="pre">location.ini</span></code> and insert a couple
+of rows into various database tables.</p>
+<div class="section" id="configuration-file">
+<h2>Configuration File<a class="headerlink" href="#configuration-file" title="Permalink to this headline">¶</a></h2>
+<p>As explained in the <a class="reference internal" href="deploy.html#deploy"><span class="std std-ref">the deployment documentation</span></a> the
+processes find this configuration file via the <code class="docutils literal"><span class="pre">ICHNAEA_CFG</span></code>
+environment variable. The variable should contain an absolute path,
+for example <code class="docutils literal"><span class="pre">/etc/location.ini</span></code>.</p>
+<p>The configuration file is an ini-style file and contains a number of
+different sections.</p>
+<div class="section" id="required-sections">
+<h3>Required Sections<a class="headerlink" href="#required-sections" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="cache">
+<h4>Cache<a class="headerlink" href="#cache" title="Permalink to this headline">¶</a></h4>
+<p>The cache section contains a <code class="docutils literal"><span class="pre">cache_url</span></code> pointing to a Redis server.</p>
+<p>The cache is used as a classic cache by the webapp code, as a backend
+to store rate-limiting counters, as a custom and a celery queuing backend.</p>
+<div class="highlight-ini"><div class="highlight"><pre><span></span><span class="k">[cache]</span>
+<span class="na">cache_url</span> <span class="o">=</span> <span class="s">redis://localhost:6379/0</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="database">
+<h4>Database<a class="headerlink" href="#database" title="Permalink to this headline">¶</a></h4>
+<p>The database section contains settings for accessing the MySQL database.</p>
+<p>The web application only requires and uses the read-only connection,
+while the asynchronous celery workers only use the read-write connection.</p>
+<p>Both of them can be restricted to only DML (data-manipulation) permissions,
+as neither needs DDL (data-definition) rights.</p>
+<p>DDL changes are only done via the alembic database migration system,
+which has a separate <code class="docutils literal"><span class="pre">alembic.ini</span></code> configuration file.</p>
+<div class="highlight-ini"><div class="highlight"><pre><span></span><span class="k">[database]</span>
+<span class="na">rw_url</span> <span class="o">=</span> <span class="s">mysql+pymysql://rw_user:password@localhost/location</span>
+<span class="na">ro_url</span> <span class="o">=</span> <span class="s">mysql+pymysql://ro_user:password@localhost/location</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="geoip">
+<h4>GeoIP<a class="headerlink" href="#geoip" title="Permalink to this headline">¶</a></h4>
+<p>The geoip section contains settings related to the maxmind GeoIP database.</p>
+<p>The <code class="docutils literal"><span class="pre">db_path</span></code> setting needs to point to a maxmind GeoIP city database
+in version 2 format. Both GeoLite and commercial databases will work.</p>
+<div class="highlight-ini"><div class="highlight"><pre><span></span><span class="k">[geoip]</span>
+<span class="na">db_path</span> <span class="o">=</span> <span class="s">/path/to/GeoIP2-City.mmdb</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="optional-sections">
+<h3>Optional Sections<a class="headerlink" href="#optional-sections" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="assets">
+<h4>Assets<a class="headerlink" href="#assets" title="Permalink to this headline">¶</a></h4>
+<p>The assets section contains settings for a static file repository
+(Amazon S3) and a public DNS to access those files via HTTPS
+(Amazon CloudFront).</p>
+<p>These are used to store and serve both the image tiles generated for
+the data map and the public export files available via the downloads
+section of the website.</p>
+<div class="highlight-ini"><div class="highlight"><pre><span></span><span class="k">[assets]</span>
+<span class="na">bucket</span> <span class="o">=</span> <span class="s">amazon_s3_bucket_name</span>
+<span class="na">url</span> <span class="o">=</span> <span class="s">https://some_distribution_id.cloudfront.net</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="sentry">
+<h4>Sentry<a class="headerlink" href="#sentry" title="Permalink to this headline">¶</a></h4>
+<p>The sentry section contains settings related to a Sentry server.</p>
+<p>The <code class="docutils literal"><span class="pre">dsn</span></code> setting needs to contain a valid DSN project entry.</p>
+<div class="highlight-ini"><div class="highlight"><pre><span></span><span class="k">[sentry]</span>
+<span class="na">dsn</span> <span class="o">=</span> <span class="s">https://public_key:secret_key@localhost/project_id</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="statsd">
+<h4>StatsD<a class="headerlink" href="#statsd" title="Permalink to this headline">¶</a></h4>
+<p>The statsd section contains settings related to a StatsD service. The
+project uses a lot of metrics as further detailed in
+<a class="reference internal" href="metrics.html#metrics"><span class="std std-ref">the metrics documentation</span></a>.</p>
+<p>The <code class="docutils literal"><span class="pre">host</span></code> and <code class="docutils literal"><span class="pre">port</span></code> settings determine how to connect to the service
+via UDP.</p>
+<p>Since a single StatsD service usually supports multiple different projects,
+the <code class="docutils literal"><span class="pre">metric_prefix</span></code> setting can be used to prefix all metrics emitted
+by this project with a unique name.</p>
+<p>The <code class="docutils literal"><span class="pre">tag_support</span></code> setting can either be <code class="docutils literal"><span class="pre">false</span></code> or <code class="docutils literal"><span class="pre">true</span></code> and declares
+whether or not the StatsD service supports metric tags.
+<a class="reference external" href="https://www.datadoghq.com/">Datadog</a> is an example of a service that
+supports tags. If <code class="docutils literal"><span class="pre">tag_support</span></code> is false, the tags will be emitted as
+part of the standard metric name.</p>
+<div class="highlight-ini"><div class="highlight"><pre><span></span><span class="k">[statsd]</span>
+<span class="na">host</span> <span class="o">=</span> <span class="s">localhost</span>
+<span class="na">port</span> <span class="o">=</span> <span class="s">8125</span>
+<span class="na">metric_prefix</span> <span class="o">=</span> <span class="s">location</span>
+<span class="na">tag_support</span> <span class="o">=</span> <span class="s">true</span>
+</pre></div>
+</div>
+<p>For initial testing it can be useful to simply capture the statsd metrics
+without running an actual statsd daemon. To do so you can use the
+<code class="docutils literal"><span class="pre">nc</span> <span class="pre">-lku</span> <span class="pre">localhost</span> <span class="pre">8125</span></code> command to run a UDP service and print out
+all incoming data on the console.</p>
+</div>
+<div class="section" id="web">
+<h4>Web<a class="headerlink" href="#web" title="Permalink to this headline">¶</a></h4>
+<p>The web section contains settings related to the non-API website content.</p>
+<p>The web functionality by default is limited to the public HTTP API.
+If the <code class="docutils literal"><span class="pre">enabled</span></code> setting is set to <code class="docutils literal"><span class="pre">true</span></code> the website content pages
+are also made available.</p>
+<p>The <code class="docutils literal"><span class="pre">map_id_base</span></code> and <code class="docutils literal"><span class="pre">map_id_labels</span></code> settings specify Mapbox map
+ids for a base map and a map containing only labels. The <code class="docutils literal"><span class="pre">map_token</span></code>
+specifies a Mapbox access token.</p>
+<div class="highlight-ini"><div class="highlight"><pre><span></span><span class="k">[web]</span>
+<span class="na">enabled</span> <span class="o">=</span> <span class="s">true</span>
+<span class="na">map_id_base</span> <span class="o">=</span> <span class="s">example_base.map-123</span>
+<span class="na">map_id_labels</span> <span class="o">=</span> <span class="s">example_labels.map-234</span>
+<span class="na">map_token</span> <span class="o">=</span> <span class="s">pk.example_public_access_token</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="database-configuration">
+<h2>Database Configuration<a class="headerlink" href="#database-configuration" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="api-keys">
+<h3>API Keys<a class="headerlink" href="#api-keys" title="Permalink to this headline">¶</a></h3>
+<p>The project requires API keys to access the locate APIs. You need to add
+API keys manually to the database by direct SQL inserts.</p>
+<p>API keys can be any string of up to 40 characters, though random UUID4s
+in hex representation are commonly used, for example
+<code class="docutils literal"><span class="pre">329694ac-a337-4856-af30-66162bc8187a</span></code>.</p>
+<p>But to start off, you can add a simple literal <cite>test</cite> API key:</p>
+<div class="highlight-sql"><div class="highlight"><pre><span></span><span class="k">INSERT</span> <span class="k">INTO</span> <span class="n">api_key</span>
+<span class="p">(</span><span class="o">`</span><span class="n">valid_key</span><span class="o">`</span><span class="p">,</span> <span class="o">`</span><span class="n">allow_locate</span><span class="o">`</span><span class="p">)</span> <span class="k">VALUES</span> <span class="p">(</span><span class="ss">&quot;test&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="export-configuration">
+<h3>Export Configuration<a class="headerlink" href="#export-configuration" title="Permalink to this headline">¶</a></h3>
+<p>The project supports exporting all data that its gets via the submit-style
+APIs to different backends. This configuration lives in the <cite>export_config</cite>
+database table.</p>
+<p>Currently three different kinds of backends are supported:</p>
+<ul class="simple">
+<li>Amazon S3 buckets</li>
+<li>The projects own internal data processing pipeline</li>
+<li>A HTTPS POST endpoint accepting the geosubmit v2 format</li>
+</ul>
+<p>The type of the target is determined by the <cite>schema</cite> column of each entry.</p>
+<p>All export targets can be configured with a <code class="docutils literal"><span class="pre">batch</span></code> setting that
+determines how many reports have to be available before data is
+submitted to the backend.</p>
+<p>All exports have an additional <code class="docutils literal"><span class="pre">skip_keys</span></code> setting as a set of
+API keys. Data submitted using one of these API keys will not be
+exported to the target.</p>
+<p>There can be multiple instances of the bucket and HTTP POST export
+targets, but only one instance of the internal export.</p>
+<p>In the simplest case, you insert one row to send data to the internal
+data pipeline via:</p>
+<div class="highlight-sql"><div class="highlight"><pre><span></span><span class="k">INSERT</span> <span class="k">INTO</span> <span class="n">export_config</span>
+<span class="p">(</span><span class="o">`</span><span class="n">name</span><span class="o">`</span><span class="p">,</span> <span class="o">`</span><span class="n">batch</span><span class="o">`</span><span class="p">,</span> <span class="o">`</span><span class="k">schema</span><span class="o">`</span><span class="p">)</span> <span class="k">VALUES</span> <span class="p">(</span><span class="ss">&quot;internal&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="ss">&quot;internal&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>For a production setup you want to set the batch column to something
+like <cite>100</cite> or <cite>1000</cite> to get more efficiency. For initial testing its
+easier to set it to <cite>1</cite> so you immediately process any incoming data.</p>
+<div class="section" id="bucket-export">
+<h4>Bucket Export<a class="headerlink" href="#bucket-export" title="Permalink to this headline">¶</a></h4>
+<p>The Amazon S3 bucket export combines reports into a gzipped JSON file
+and uploads them to the specified bucket <code class="docutils literal"><span class="pre">url</span></code>, for example:</p>
+<p><code class="docutils literal"><span class="pre">s3://amazon_s3_bucket_name/directory/{source}{api_key}/{year}/{month}/{day}</span></code></p>
+<p>The schema column must be set to <cite>s3</cite>.</p>
+<p>The url can contain any level of additional static directories under
+the bucket root. The <code class="docutils literal"><span class="pre">{api_key}/{year}/{month}/{day}</span></code> parts will
+be dynamically replaced by the <cite>api_key</cite> used to upload the data,
+the source of the report (e.g. gnss) and the date when the backup took place.
+The files use a random UUID4 as the filename.</p>
+<p>An example filename might be:</p>
+<p><code class="docutils literal"><span class="pre">/directory/test/2015/07/15/554d8d3c-5b28-48bb-9aa8-196543235cf2.json.gz</span></code></p>
+</div>
+<div class="section" id="internal-export">
+<h4>Internal Export<a class="headerlink" href="#internal-export" title="Permalink to this headline">¶</a></h4>
+<p>The internal export forwards the incoming data into the internal
+data pipeline.</p>
+<p>The schema column must be set to <cite>internal</cite>.</p>
+</div>
+<div class="section" id="https-export">
+<h4>HTTPS Export<a class="headerlink" href="#https-export" title="Permalink to this headline">¶</a></h4>
+<p>The HTTPS export buffers incoming data into batches of <code class="docutils literal"><span class="pre">batch</span></code>
+size and then submits them using the <a class="reference internal" href="../api/geosubmit2.html#api-geosubmit-latest"><span class="std std-ref">Geosubmit Version 2</span></a>
+API to the specified <code class="docutils literal"><span class="pre">url</span></code> endpoint, for example:</p>
+<p><code class="docutils literal"><span class="pre">https://localhost/some/api/url?key=export</span></code></p>
+<p>The schema column must be set to <cite>geosubmit</cite>.</p>
+<p>If the project is taking in data from a partner in a data exchange,
+the <code class="docutils literal"><span class="pre">skip_keys</span></code> setting can be used to prevent data being
+round tripped and send back to the same partner that it came from.</p>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="deploy.html" class="btn btn-neutral float-right" title="Deployment" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral" title="Installation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2013-2015, Mozilla.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'1.5',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

@@ -1,0 +1,337 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Accuracy &mdash; Ichnaea 1.5 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
+    <link rel="top" title="Ichnaea 1.5 documentation" href="../index.html"/>
+        <link rel="up" title="Algorithms" href="index.html"/>
+        <link rel="next" title="Internal Code API" href="../internal_api/index.html"/>
+        <link rel="prev" title="Algorithms" href="index.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Ichnaea
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.5
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../usage.html">Using the Service</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/index.html">Services API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../import_export.html">Data Export</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../install/index.html">Installation</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Algorithms</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Accuracy</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#bluetooth-wifi">Bluetooth / WiFi</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#gsm-cells">GSM Cells</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#wcdma-cells">WCDMA Cells</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#lte-cells">LTE Cells</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#geoip">GeoIP</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../internal_api/index.html">Internal Code API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../glossary.html">Glossary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../changes/index.html">Changelog</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Ichnaea</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">Algorithms</a> &raquo;</li>
+        
+      <li>Accuracy</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/algo/accuracy.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="accuracy">
+<span id="id1"></span><h1>Accuracy<a class="headerlink" href="#accuracy" title="Permalink to this headline">¶</a></h1>
+<p>Depending on the signal standard, we can promise different sorts of accuracy.</p>
+<p>Underlying this is the assumption that we have enough data about the
+area at all. With no or too little data we’ll have to fallback to less
+accurate data sources. Bluetooth is the most accurate, followed by
+WiFi and than cell based estimation using single cells, multiple cells
+or cell location areas. If all else fails GeoIP serves as a general fallback.</p>
+<div class="section" id="bluetooth-wifi">
+<h2>Bluetooth / WiFi<a class="headerlink" href="#bluetooth-wifi" title="Permalink to this headline">¶</a></h2>
+<p>Bluetooth and WiFi networks have a fairly limited range. Bluetooth
+low-energy beacons typically just a couple meters and WiFi networks up
+to 100 meters. With obstacles like walls and people in the way, these
+get even lower.</p>
+<p>But this data can be skewed when the device in question is moving.
+It takes some time to do a network scan and devices tend to cache this
+information heavily. So there can be a time delta of tens of seconds
+between when a network was actually seen and when it is reported to
+the application layer. With a fast moving device this can lead to
+inaccuracies of a couple kilometers. WiFi networks tend to show up
+in scan long after they are out of reach, if the the device was
+actually connected to these networks.</p>
+<p>This means position estimates based on WiFi networks are usually
+accurate to 100 meters. If a lot of networks are available in the area
+accuracy tends to increase to about 10 or 20 meters. Bluetooth networks
+tend to be accurate to about 10 meters.</p>
+<p>One challenge that’s particular severe in Bluetooth and WiFi networks
+are all the constantly moving networks, for example those installed on
+buses or trains or in the form of hotspot enabled mobile phones or
+tablets. So movement detection and detecting inconsistencies between
+observed data and the database world view are important considerations.</p>
+</div>
+<div class="section" id="gsm-cells">
+<h2>GSM Cells<a class="headerlink" href="#gsm-cells" title="Permalink to this headline">¶</a></h2>
+<p>In GSM networks one typically has only access to the unique cell id of
+the serving cell. In GSM networks the phone does not know the full cell
+ids of any neighboring cells, unless it associates with the new cell as
+part of a hand-over, forgetting the cell id of the old cell.</p>
+<p>So we are limited to a basic <a class="reference internal" href="../glossary.html#term-cell-id"><span class="xref std std-term">Cell-ID</span></a> approach, meaning we assume
+that the user is at the center of the current GSM cell area and use the
+cell radius as the accuracy.</p>
+<p>GSM cells are restricted to a maximum range of 35km, but there are rare
+exceptions using the GSM extended range of 120km.</p>
+<p>In more populated places the cell sizes are typically much smaller,
+but generally accuracy will be in the tens of kilometer range.</p>
+</div>
+<div class="section" id="wcdma-cells">
+<h2>WCDMA Cells<a class="headerlink" href="#wcdma-cells" title="Permalink to this headline">¶</a></h2>
+<p>In WCDMA networks neighboring cell information can be available. But
+limitations in chipset drivers, the radio interface layer and the
+operating systems often hide this data from application code. Or
+only partially expose the cell identifiers, for example only exposing
+the carrier and primary scrambling code of the neighboring cells.</p>
+<p>So in most cases we are limited to the same approach as for GSM cells.
+The typical cell sizes of WCDMA cells are much smaller, which practically
+leads to a better accuracy. But WCDMA cells in rural areas can have a
+larger radius than GSM cells and we observed cells sizes of 60-70km.</p>
+<p>In urban areas we should typically see accuracy in the 1 to 10 kilometer
+range.</p>
+</div>
+<div class="section" id="lte-cells">
+<h2>LTE Cells<a class="headerlink" href="#lte-cells" title="Permalink to this headline">¶</a></h2>
+<p>LTE networks are similar to WCDMA networks and the same restriction on
+neighboring cells applies. Instead of a primary scrambling code LTE uses
+a physical cell id, which for our purposes has similar characteristics.</p>
+<p>LTE cells are again often even smaller than WCDMA cells which leads to
+better accuracies.</p>
+<p>LTE networks also expose a time based distance metric in the form of
+the timing advance. While we currently don’t use this information, in
+the future it has the potential to significantly improve position
+estimates based on multiple cells.</p>
+</div>
+<div class="section" id="geoip">
+<h2>GeoIP<a class="headerlink" href="#geoip" title="Permalink to this headline">¶</a></h2>
+<p>The accuracy of GeoIP depends a lot on the region the user is in.
+In the US GeoIP can be fairly accurate and often places the
+user in the right city or metropolitan area. In many other parts of
+the world GeoIP is only accurate to the region level.</p>
+<p>Typical GeoIP accuracies are either in the 25 km range for city based
+estimates or multiple hundred kilometers for region based estimates.</p>
+<p>IP version 6 has the chance to improve this situation, as the need for
+private carrier networks and network address translation decreases.
+But so far this hasn’t made any measurable impact and most traffic
+is still restricted to IP version 4.</p>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../internal_api/index.html" class="btn btn-neutral float-right" title="Internal Code API" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral" title="Algorithms" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2013-2015, Mozilla.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'1.5',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

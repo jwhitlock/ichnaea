@@ -1,0 +1,327 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Testing &mdash; Ichnaea 1.5 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
+    <link rel="top" title="Ichnaea 1.5 documentation" href="../index.html"/>
+        <link rel="up" title="Installation" href="index.html"/>
+        <link rel="next" title="Algorithms" href="../algo/index.html"/>
+        <link rel="prev" title="Metrics" href="metrics.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Ichnaea
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.5
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../usage.html">Using the Service</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/index.html">Services API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../import_export.html">Data Export</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Installation</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="config.html">Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="deploy.html">Deployment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="devel.html">Development</a></li>
+<li class="toctree-l2"><a class="reference internal" href="metrics.html">Metrics</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Testing</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#unit-tests">Unit Tests</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#testing-tasks">Testing Tasks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#testing-multiple-python-versions">Testing Multiple Python Versions</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../algo/index.html">Algorithms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../internal_api/index.html">Internal Code API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../glossary.html">Glossary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../changes/index.html">Changelog</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Ichnaea</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">Installation</a> &raquo;</li>
+        
+      <li>Testing</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/install/testing.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="testing">
+<span id="id1"></span><h1>Testing<a class="headerlink" href="#testing" title="Permalink to this headline">¶</a></h1>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Since the tests use a real database and Redis connection,
+you cannot parallelize any tests.</p>
+</div>
+<div class="section" id="unit-tests">
+<h2>Unit Tests<a class="headerlink" href="#unit-tests" title="Permalink to this headline">¶</a></h2>
+<p>If you have a local development environment setup, you can run all tests
+including coverage tests via:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>make <span class="nb">test</span>
+</pre></div>
+</div>
+<p>Or run individual test modules via for example:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>make <span class="nb">test</span> <span class="nv">TESTS</span><span class="o">=</span>ichnaea.tests.test_geoip
+</pre></div>
+</div>
+</div>
+<div class="section" id="testing-tasks">
+<h2>Testing Tasks<a class="headerlink" href="#testing-tasks" title="Permalink to this headline">¶</a></h2>
+<p>The project includes a good number of asynchronous tasks, executed by Celery
+in the code. The easiest way to test them is by writing unit tests and calling
+the task functions directly.</p>
+<p>In order to do more integration testing, you can also manually queue a task
+by using the celery <cite>call</cite> command. For example:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="nv">ICHNAEA_CFG</span><span class="o">=</span>location.ini bin/celery -A ichnaea.async.app:celery_app call <span class="se">\</span>
+    ichnaea.data.tasks.update_cell --args<span class="o">=</span><span class="s1">&#39;[1000, ]&#39;</span>
+</pre></div>
+</div>
+<p>You then need to run the celery worker process and it will pick up the task
+from the queue and execute it:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="nv">ICHNAEA_CFG</span><span class="o">=</span>location.ini bin/celery <span class="se">\</span>
+    -A ichnaea.async.app:celery_app worker -c <span class="m">1</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="testing-multiple-python-versions">
+<h2>Testing Multiple Python Versions<a class="headerlink" href="#testing-multiple-python-versions" title="Permalink to this headline">¶</a></h2>
+<p>The project supports multiple Python versions. In order to run the tests
+against all of them locally, we are using tox:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>bin/tox
+</pre></div>
+</div>
+<p>You can explicitly state what Python versions to test:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>bin/tox -e<span class="o">=</span>py<span class="o">{</span><span class="m">26</span>,27,34<span class="o">}</span>
+</pre></div>
+</div>
+<p>You can also run a subset of all tests, the same way as via <cite>make test</cite>:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>bin/tox <span class="nv">TESTS</span><span class="o">=</span>ichnaea.tests.test_util
+</pre></div>
+</div>
+<p>If the tox environment got into a weird state, just recreate it:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>bin/tox --recreate
+</pre></div>
+</div>
+<p>Of course these options can be combined, for example:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>bin/tox -e<span class="o">=</span>py<span class="o">{</span><span class="m">34</span><span class="o">}</span> <span class="nv">TESTS</span><span class="o">=</span>ichnaea.tests.test_util
+</pre></div>
+</div>
+<p>Since the project relies on a number of non-Python dependencies, each
+tox environment is created from a full copy of the git repo. To ease
+testing the <cite>ichnaea</cite> code package is then removed from inside each
+tox environment and finally <cite>bin/install -e ichnaea /path/to/parent/repo</cite>
+is called. This means the code inside the top-level <cite>ichnaea</cite> code package
+is actually used from inside each tox environment.</p>
+<p>If you set a pdb breakpoint in the normal main code, you’ll thus get
+an easy way to have a pdb inside each tox environment.</p>
+<p>One caveat is that this leads to the Cython based geocalc.so file to be
+recompiled with the last Python version you used for tox. You may need
+to run <cite>make</cite> again to recreate based on the Python version of the
+non-tox environment.</p>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../algo/index.html" class="btn btn-neutral float-right" title="Algorithms" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="metrics.html" class="btn btn-neutral" title="Metrics" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2013-2015, Mozilla.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'1.5',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

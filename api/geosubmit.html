@@ -1,0 +1,401 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Geosubmit (Deprecated) &mdash; Ichnaea 1.5 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
+    <link rel="top" title="Ichnaea 1.5 documentation" href="../index.html"/>
+        <link rel="up" title="Services API" href="index.html"/>
+        <link rel="next" title="Search (Deprecated)" href="search.html"/>
+        <link rel="prev" title="Geosubmit Version 2" href="geosubmit2.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Ichnaea
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.5
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../usage.html">Using the Service</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Services API</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="index.html#api-access-keys">API Access Keys</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#errors">Errors</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html#apis">APIs</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="geolocate.html">Geolocate</a></li>
+<li class="toctree-l3"><a class="reference internal" href="region.html">Region</a></li>
+<li class="toctree-l3"><a class="reference internal" href="geosubmit2.html">Geosubmit Version 2</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Geosubmit (Deprecated)</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#request">Request</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#field-definition">Field Definition</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#response">Response</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="search.html">Search (Deprecated)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="submit.html">Submit (Deprecated)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="transfer.html">Transfer (private)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../import_export.html">Data Export</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../install/index.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../algo/index.html">Algorithms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../internal_api/index.html">Internal Code API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../glossary.html">Glossary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../changes/index.html">Changelog</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Ichnaea</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">Services API</a> &raquo;</li>
+        
+      <li>Geosubmit (Deprecated)</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/api/geosubmit.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="geosubmit-deprecated">
+<span id="api-geosubmit"></span><h1>Geosubmit (Deprecated)<a class="headerlink" href="#geosubmit-deprecated" title="Permalink to this headline">¶</a></h1>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Please use the <a class="reference internal" href="geosubmit2.html#api-geosubmit-latest"><span class="std std-ref">Geosubmit Version 2</span></a> API instead.</p>
+</div>
+<dl class="docutils">
+<dt>Purpose</dt>
+<dd>Submit data about nearby Bluetooth, cell and WiFi networks.</dd>
+</dl>
+<div class="section" id="request">
+<h2>Request<a class="headerlink" href="#request" title="Permalink to this headline">¶</a></h2>
+<p>Geosubmit requests are submitted using a POST request to the URL:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>https://location.services.mozilla.com/v1/geosubmit?key=&lt;API_KEY&gt;
+</pre></div>
+</div>
+<p>Geosubmit requests are submitted using a POST request with a JSON body:</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="p">{</span><span class="s2">&quot;items&quot;</span><span class="o">:</span> <span class="p">[</span>
+   <span class="p">{</span>
+    <span class="s2">&quot;latitude&quot;</span><span class="o">:</span> <span class="o">-</span><span class="mf">22.7539192</span><span class="p">,</span>
+    <span class="s2">&quot;longitude&quot;</span><span class="o">:</span> <span class="o">-</span><span class="mf">43.4371081</span><span class="p">,</span>
+    <span class="s2">&quot;accuracy&quot;</span><span class="o">:</span> <span class="mf">10.0</span><span class="p">,</span>
+    <span class="s2">&quot;altitude&quot;</span><span class="o">:</span> <span class="mf">100.0</span><span class="p">,</span>
+    <span class="s2">&quot;altitudeAccuracy&quot;</span><span class="o">:</span> <span class="mf">50.0</span><span class="p">,</span>
+    <span class="s2">&quot;timestamp&quot;</span><span class="o">:</span> <span class="mi">1405602028568</span><span class="p">,</span>
+    <span class="s2">&quot;heading&quot;</span><span class="o">:</span> <span class="mf">45.0</span><span class="p">,</span>
+    <span class="s2">&quot;speed&quot;</span><span class="o">:</span> <span class="mf">3.6</span><span class="p">,</span>
+    <span class="s2">&quot;bluetoothBeacons&quot;</span><span class="o">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="s2">&quot;macAddress&quot;</span><span class="o">:</span> <span class="s2">&quot;ff:74:27:89:5a:77&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;age&quot;</span><span class="o">:</span> <span class="mi">2000</span><span class="p">,</span>
+            <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;beacon&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;signalStrength&quot;</span><span class="o">:</span> <span class="o">-</span><span class="mi">110</span>
+        <span class="p">}</span>
+    <span class="p">],</span>
+    <span class="s2">&quot;cellTowers&quot;</span><span class="o">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="s2">&quot;radioType&quot;</span><span class="o">:</span> <span class="s2">&quot;gsm&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;cellId&quot;</span><span class="o">:</span> <span class="mi">12345</span><span class="p">,</span>
+            <span class="s2">&quot;locationAreaCode&quot;</span><span class="o">:</span> <span class="mi">2</span><span class="p">,</span>
+            <span class="s2">&quot;mobileCountryCode&quot;</span><span class="o">:</span> <span class="mi">208</span><span class="p">,</span>
+            <span class="s2">&quot;mobileNetworkCode&quot;</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
+            <span class="s2">&quot;age&quot;</span><span class="o">:</span> <span class="mi">3</span><span class="p">,</span>
+            <span class="s2">&quot;asu&quot;</span><span class="o">:</span> <span class="mi">31</span><span class="p">,</span>
+            <span class="s2">&quot;signalStrength&quot;</span><span class="o">:</span> <span class="o">-</span><span class="mi">51</span><span class="p">,</span>
+            <span class="s2">&quot;timingAdvance&quot;</span><span class="o">:</span> <span class="mi">1</span>
+        <span class="p">}</span>
+    <span class="p">],</span>
+    <span class="s2">&quot;wifiAccessPoints&quot;</span><span class="o">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="s2">&quot;macAddress&quot;</span><span class="o">:</span> <span class="s2">&quot;01:23:45:67:89:ab&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;age&quot;</span><span class="o">:</span> <span class="mi">3</span><span class="p">,</span>
+            <span class="s2">&quot;channel&quot;</span><span class="o">:</span> <span class="mi">6</span><span class="p">,</span>
+            <span class="s2">&quot;frequency&quot;</span><span class="o">:</span> <span class="mi">2437</span><span class="p">,</span>
+            <span class="s2">&quot;signalToNoiseRatio&quot;</span><span class="o">:</span> <span class="mi">13</span><span class="p">,</span>
+            <span class="s2">&quot;signalStrength&quot;</span><span class="o">:</span> <span class="o">-</span><span class="mi">77</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="s2">&quot;macAddress&quot;</span><span class="o">:</span> <span class="s2">&quot;23:45:67:89:ab:cd&quot;</span>
+        <span class="p">}</span>
+    <span class="p">]</span>
+   <span class="p">}</span>
+<span class="p">]}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="field-definition">
+<h2>Field Definition<a class="headerlink" href="#field-definition" title="Permalink to this headline">¶</a></h2>
+<p>Requests always need to contain a batch of <a class="reference internal" href="../glossary.html#term-reports"><span class="xref std std-term">reports</span></a>. Each
+<a class="reference internal" href="../glossary.html#term-report"><span class="xref std std-term">report</span></a> must contain at least one entry in the <cite>cellTowers</cite> array or
+two entries in the <cite>wifiAccessPoints</cite> array.</p>
+<p>Most of the fields are optional. For Bluetooth and WiFi records only the
+<cite>macAddress</cite> field is required. For cell records the <cite>radioType</cite>,
+<cite>mobileCountryCode</cite>, <cite>mobileNetworkCode</cite>, <cite>locationAreaCode</cite> and
+<cite>cellId</cite> fields are required.</p>
+<p>The Bluetooth array is an extension and can contain four different fields
+for each Bluetooth network:</p>
+<dl class="docutils">
+<dt>macAddress</dt>
+<dd>The address of the Bluetooth Low Energy (BLE) beacon.</dd>
+<dt>name</dt>
+<dd>The name of the BLE beacon.</dd>
+<dt>age</dt>
+<dd>The number of milliseconds since this Bluetooth beacon was last seen.</dd>
+<dt>signalStrength</dt>
+<dd>The measured signal strength of the BLE beacon in dBm.</dd>
+</dl>
+<p>The cell record has been extended over the geolocate schema to include
+three more optional fields:</p>
+<dl class="docutils">
+<dt>age</dt>
+<dd>The number of milliseconds since this cell was primary.
+If age is 0, the cell id represents a current observation.</dd>
+<dt>asu</dt>
+<dd>The arbitrary strength unit. An integer in the range of 0 to 95 (optional).</dd>
+<dt>psc</dt>
+<dd>The physical cell id as an integer in the range of 0 to 503 (optional).</dd>
+</dl>
+<p>The WiFi record has been extended with one extra optional field
+<cite>frequency</cite>.  Either <cite>frequency</cite> or <cite>channel</cite> may be submitted to the
+geosubmit API as they are functionally equivalent.</p>
+<dl class="docutils">
+<dt>frequency</dt>
+<dd>The frequency in MHz of the channel over which the client is
+communicating with the access point.</dd>
+</dl>
+<p>The top level schema is identical to the geolocate schema with the
+following additional fields:</p>
+<dl class="docutils">
+<dt>latitude</dt>
+<dd>The latitude of the observation (WSG 84).</dd>
+<dt>longitude</dt>
+<dd>The longitude of the observation (WSG 84).</dd>
+<dt>timestamp</dt>
+<dd>The time of observation of the data, measured in milliseconds since
+the UNIX epoch. Should be omitted if the observation time is very
+recent.</dd>
+<dt>accuracy</dt>
+<dd>The accuracy of the observed position in meters.</dd>
+<dt>altitude</dt>
+<dd>The altitude at which the data was observed in meters above sea-level.</dd>
+<dt>altitudeAccuracy</dt>
+<dd>The accuracy of the altitude estimate in meters.</dd>
+<dt>heading</dt>
+<dd>The heading field denotes the direction of travel of the device and is
+specified in degrees, where 0° ≤ heading &lt; 360°, counting clockwise
+relative to the true north. If the device cannot provide heading
+information or the device is stationary, the field should be omitted.</dd>
+<dt>speed</dt>
+<dd>The speed field denotes the magnitude of the horizontal component of
+the device’s current velocity and is specified in meters per second.
+If the device cannot provide speed information, the field should be
+omitted.</dd>
+</dl>
+</div>
+<div class="section" id="response">
+<h2>Response<a class="headerlink" href="#response" title="Permalink to this headline">¶</a></h2>
+<p>Successful requests return a HTTP 200 response with a body of an empty
+JSON object.</p>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="search.html" class="btn btn-neutral float-right" title="Search (Deprecated)" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="geosubmit2.html" class="btn btn-neutral" title="Geosubmit Version 2" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2013-2015, Mozilla.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'1.5',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>
